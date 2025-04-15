@@ -169,7 +169,7 @@ export default function AjitPortfolio() {
     </main>
 
       <footer className="text-center text-xs pt-10 opacity-70">
-        © 2025 <a className="underline" href="https://iamajit.in">iamajit.in | React, Tailwind CSS </a> 
+        © 2025 <a className="underline" href="https://iamajit.in">iamajit.in | React,Tailwind CSS </a> 
       </footer>
     </div>
   );
