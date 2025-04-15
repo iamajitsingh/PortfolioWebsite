@@ -51,7 +51,9 @@ export default function AjitPortfolio() {
       <section className="text-center space-y-4 opacity-0">
         <div className="text-5xl font-extrabold">🎯 Ajit Singh</div>
         <div className="text-lg italic">Turning sentiment into insight with NLP, AI and DevOps</div>
-        <p className="text-sm tracking-wide">Built from holistic work, and not GATE cutoffs.</p>
+        <p className="text-sm tracking-wide">Soul’s in Information Systems, hands are in DevOps and AI, however my voice echoes loudest in Responsible Computing.
+
+</p>
         <a
           href="/AjitSingh_ResearchCV.pdf"
           download
@@ -146,7 +148,7 @@ export default function AjitPortfolio() {
             <ul className="list-disc list-inside mt-4 space-y-2 text-sm">
               <li>☁️ AWS Certified Cloud Practitioner – Score: 1000/1000</li>
               <li>☁️ Microsoft Azure Fundamentals – Score: 929/1000</li>
-              <li>🧠 NVIDIA Deep Learning Institute – Building Transformer Based NLP Applications</li>
+              <li>🧠 NVIDIA  DLI - Transformer-Based NLP Applications</li>
             </ul>
             <p className="mt-4 text-sm">
               <a href="https://drive.google.com/file/d/1pRrt9RI2Tb_V91X7BAn6Dp0UKz6rulef/view?usp=sharing" target="_blank" className={link}>AWS Certificate</a><br />
@@ -167,7 +169,7 @@ export default function AjitPortfolio() {
     </main>
 
       <footer className="text-center text-xs pt-10 opacity-70">
-        © 2025 <a className="underline" href="https://iamajit.in">iamajit.in</a> 
+        © 2025 <a className="underline" href="https://iamajit.in">iamajit.in | React, Tailwind CSS </a> 
       </footer>
     </div>
   );
