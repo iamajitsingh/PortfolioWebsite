@@ -1,13 +1,17 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import path from 'path'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import path from 'path';
 
-export default defineConfig({
-  plugins: [react()],
-  base: '/PortfolioWebsite/', //  CRUCIAL for GH Pages
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
+export default defineConfig(({ mode }) => {
+  console.log("⚡ Vite running in mode:", mode);
+
+  return {
+    plugins: [react()],
+    base: mode === 'production' ? '/PortfolioWebsite/' : '/',
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, './src'),
+      },
     },
-  },
-})
+  };
+});

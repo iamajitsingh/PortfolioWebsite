@@ -51,9 +51,8 @@ export default function AjitPortfolio() {
       <section className="text-center space-y-4 opacity-0">
         <div className="text-5xl font-extrabold">🎯 Ajit Singh</div>
         <div className="text-lg italic">Turning sentiment into insight with NLP, AI and DevOps</div>
-        <p className="text-sm tracking-wide">Soul’s in Information Systems, hands are in DevOps and AI, however my voice echoes loudest in Responsible Computing.
-
-</p>
+        <p className="text-sm tracking-wide">Soul’s in Information Systems, hands are in DevOps and AI, however my voice echoes loudest in Responsible Computing. 
+        <br />Cringed already? Read on!</p>
         <a
           href="/AjitSingh_ResearchCV.pdf"
           download
