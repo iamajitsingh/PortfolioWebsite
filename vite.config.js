@@ -7,7 +7,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react()],
-    base: mode === 'production' ? '/PortfolioWebsite/' : '/',
+    base: mode === 'production' ? "/"    : '/',
     resolve: {
       alias: {
         '@': path.resolve(__dirname, './src'),
