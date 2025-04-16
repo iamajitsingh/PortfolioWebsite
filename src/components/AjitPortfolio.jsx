@@ -592,26 +592,48 @@ const linkUltra = `
   transition={{ duration: 0.6, ease: "easeOut" }}
   viewport={{ once: true }}
 >
-               <Card className={`
-  rounded-3xl 
-  border border-slate-300 dark:border-neutral-700 
-  transition duration-300 ease-in-out transform 
-  hover:scale-[1.015] 
-  hover:shadow-[0_8px_30px_rgba(0,200,255,0.25)] 
-  hover:border-sky-300 dark:hover:border-sky-500
-  ${card}
-`}><CardContent className={`p-8 sm:p-10 space-y-4 ${text}`}>
+  <Card className={`
+    rounded-3xl 
+    border border-slate-300 dark:border-neutral-700 
+    transition duration-300 ease-in-out transform 
+    hover:scale-[1.015] 
+    hover:shadow-[0_8px_30px_rgba(0,200,255,0.25)] 
+    hover:border-sky-300 dark:hover:border-sky-500
+    ${card}
+  `}>
+    <CardContent className={`p-8 sm:p-10 space-y-4 ${text}`}>
+      <h2 className={`text-3xl font-semibold mb-2 underline ${underline} drop-shadow-sm tracking-tight`}>
+        🗂️ Application Tracker
+      </h2>
+      <div className="w-20 h-[6px] rounded-full mt-1 mb-4 shadow-inner 
+        bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-400
+        dark:from-yellow-300 dark:via-orange-400 dark:to-pink-500">
+      </div>
 
-            <h2 className={`text-3xl font-semibold mb-2 underline ${underline} drop-shadow-sm tracking-tight`}>🗂️ Application Tracker</h2>
-            <div className="w-20 h-[6px] rounded-full mt-1 mb-4 shadow-inner 
-  bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-400
-  dark:from-yellow-300 dark:via-orange-400 dark:to-pink-500">
-</div>
-            <p className="mt-4 text-sm"><div className="bg-gradient-to-r from-sky-100/40 to-white dark:from-sky-800/20 dark:to-transparent p-4 rounded-lg border border-sky-200 dark:border-sky-700 text-sm sm:text-base">
+      {/* Tracker PDF */}
+      <div className="bg-gradient-to-r from-sky-100/40 to-white dark:from-sky-800/20 dark:to-transparent p-4 rounded-lg border border-sky-200 dark:border-sky-700 text-sm sm:text-base">
+        📄 <a className={`${link} ${linkUltra} font-medium`} href="/MTech_Application_Tracker_2025.pdf" target="_blank" rel="noopener noreferrer">
+          Applications Submitted (PDF)
+        </a>
+      </div>
 
-              📄 <a className={`${link} ${linkUltra} font-medium`} href="/MTech_Application_Tracker_2025.pdf"  target="_blank" rel="noopener noreferrer">Applications Submitted (PDF)</a>
-              </div></p>
-          </CardContent></Card></motion.div>
+      {/* SOP Master Document */}
+      <div className="bg-gradient-to-r from-sky-100/40 to-white dark:from-sky-800/20 dark:to-transparent p-4 rounded-lg border border-sky-200 dark:border-sky-700 text-sm sm:text-base">
+        📝 <a className={`${link} ${linkUltra} font-medium`} href="/Generic_SOP.pdf" target="_blank" rel="noopener noreferrer">
+          Statement of Purpose (PDF)
+        </a>
+      </div>
+
+      {/* Certificates Index */}
+      <div className="bg-gradient-to-r from-sky-100/40 to-white dark:from-sky-800/20 dark:to-transparent p-4 rounded-lg border border-sky-200 dark:border-sky-700 text-sm sm:text-base">
+        🎖️ <a className={`${link} ${linkUltra} font-medium`} href="/AjitSinghAdditionalInfo_General_Application.pdf" target="_blank" rel="noopener noreferrer">
+          Certificate Index (PDF)
+        </a>
+      </div>
+
+    </CardContent>
+  </Card>
+</motion.div>
 
     </main>
 
