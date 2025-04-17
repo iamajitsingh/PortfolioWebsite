@@ -4,37 +4,17 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
-
 export default function AjitPortfolio() {
   const [theme, setTheme] = useState("light");
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("about");
 
+  // Manual dark-mode toggle: ensure Tailwind's darkMode is set to 'class' in tailwind.config.js
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", theme === "dark");
+  }, [theme]);
 
-  const bg = theme === "light" 
-  ? "bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white via-gray-100 to-gray-300" 
-  : "bg-gradient-to-br from-gray-900 via-blue-900 to-black backdrop-blur-md";
-  const text = theme === "light" ? "text-slate-800" : "text-slate-200";
-  const card = theme === "light"
-  ? "bg-white"
-  : "bg-black/40 backdrop-blur-xl shadow-xl";
-  const underline = theme === "light" ? "decoration-sky-500" : "decoration-amber-400";
-  const link = theme === "light"
-  ? "text-blue-800"
-  : "text-yellow-300";
-
-const linkUltra = `
-  relative inline-block font-semibold transition-all duration-300 ease-in-out
-  hover:scale-[1.08] hover:-translate-y-[1.5px]
-  hover:underline hover:underline-offset-8 hover:decoration-wavy
-
-  before:content-[''] before:absolute before:inset-0 before:rounded-lg
-  before:bg-gradient-to-r before:from-cyan-400 before:via-white before:to-cyan-400
-  dark:before:from-yellow-300 dark:before:via-white dark:before:to-yellow-300
-  before:bg-[length:200%_auto] before:opacity-0 hover:before:opacity-30
-  before:animate-shimmer before:z-[-1]
-`;
-
+  // Animation observers
   useEffect(() => {
     const sections = document.querySelectorAll("section, main > div");
     const observer = new IntersectionObserver(
@@ -53,154 +33,114 @@ const linkUltra = `
 
   useEffect(() => {
     const sections = document.querySelectorAll("main > div[id]");
-  
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
         });
       },
       { threshold: 0.5 }
     );
-  
     sections.forEach((sec) => observer.observe(sec));
     return () => sections.forEach((sec) => observer.unobserve(sec));
   }, []);
-  
-  
+
+  // Theme-based classes
+  const bg =
+    theme === "light"
+      ? "bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white via-gray-100 to-gray-300"
+      : "bg-gradient-to-br from-gray-900 via-blue-900 to-black backdrop-blur-md";
+  const text = theme === "light" ? "text-slate-800" : "text-slate-200";
+  const card = theme === "light" ? "bg-white" : "bg-black/40 backdrop-blur-xl shadow-xl";
+  const underline = theme === "light" ? "decoration-sky-500" : "decoration-amber-400";
+  const link = theme === "light" ? "text-blue-800" : "text-yellow-300";
+  const linkUltra = `
+    relative inline-block font-semibold transition-all duration-300 ease-in-out
+    hover:scale-[1.08] hover:-translate-y-[1.5px]
+    hover:underline hover:underline-offset-8 hover:decoration-wavy
+
+    before:content-[''] before:absolute before:inset-0 before:rounded-lg
+    before:bg-gradient-to-r before:from-cyan-400 before:via-white before:to-cyan-400
+    dark:before:from-yellow-300 dark:before:via-white dark:before:to-yellow-300
+    before:bg-[length:200%_auto] before:opacity-0 hover:before:opacity-30
+    before:animate-shimmer before:z-[-1]
+  `;
 
   return (
-    <div className={`font-sans p-6 space-y-8 max-w-5xl mx-auto scroll-smooth min-h-screen transition-colors duration-500 ${bg} ${text}`}>
+    <div
+      className={
+        `font-sans p-6 space-y-8 max-w-5xl mx-auto scroll-smooth min-h-screen transition-colors duration-500 ${bg} ${text}`
+      }
+    >
+      {/* Global keyframes & utilities */}
       <style>{`
-        @keyframes fadeInUp {
-          0% { opacity: 0; transform: translateY(20px); }
-          100% { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fadeInUp {
-          animation: fadeInUp 0.8s ease-out forwards;
-        }
-        @keyframes spin-slow {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-@keyframes shimmer {
-  100% {
-    background-position: 200% center;
-  }
-}
-.before\:animate-shimmer::before {
-  animation: shimmer 2.5s linear infinite;
-}
-  @keyframes spark1 {
-    0% { transform: translate(0, 0) scale(1); opacity: 1; }
-    100% { transform: translate(60px, -40px) scale(0); opacity: 0; }
-  }
-
-  @keyframes spark2 {
-    0% { transform: translate(0, 0) scale(1); opacity: 1; }
-    100% { transform: translate(-40px, 60px) scale(0); opacity: 0; }
-  }
-
-  @keyframes spark3 {
-    0% { transform: translate(0, 0) scale(1); opacity: 1; }
-    100% { transform: translate(30px, 30px) scale(0); opacity: 0; }
-  }
-
-  .animate-spin-slow {
-    animation: spin-slow 10s linear infinite;
-  }
-
-  .animate-spark1 {
-    animation: spark1 2s ease-out infinite alternate;
-    top: 10%; left: 50%;
-  }
-
-  .animate-spark2 {
-    animation: spark2 3s ease-in-out infinite alternate;
-    top: 40%; left: 30%;
-  }
-
-  .animate-spark3 {
-    animation: spark3 2.5s ease-in infinite alternate;
-    top: 60%; left: 70%;
-  }
-
-  @keyframes pulse-glow {
-  0% {
-    text-shadow: 0 0 0px rgba(0, 200, 255, 0.4);
-  }
-  50% {
-    text-shadow: 0 0 10px rgba(0, 200, 255, 0.8);
-  }
-  100% {
-    text-shadow: 0 0 0px rgba(0, 200, 255, 0.4);
-  }
-}
-.pulse-text {
-  animation: pulse-glow 2.5s infinite ease-in-out;
-}
-.dark .pulse-text {
-  animation: pulse-glow 2.5s infinite ease-in-out;
-  text-shadow: 0 0 2px rgba(255, 191, 0, 0.4);
-}
-
-@keyframes core-glow {
-  0%, 100% { transform: scale(1); opacity: 0.5; }
-  50% { transform: scale(1.2); opacity: 1; }
-}
-
-.group-hover\:animate-pulse {
-  animation: core-glow 1.6s ease-in-out infinite;
-}
+        @keyframes fadeInUp {0% { opacity: 0; transform: translateY(20px);} 100% { opacity: 1; transform: translateY(0);} }
+        .animate-fadeInUp { animation: fadeInUp 0.8s ease-out forwards; }
+        @keyframes spin-slow {0% { transform: rotate(0deg);} 100% { transform: rotate(360deg);} }
+        @keyframes shimmer {100% { background-position: 200% center; }}
+        .before\:animate-shimmer::before { animation: shimmer 2.5s linear infinite; }
+        @keyframes spark1 {0% { transform: translate(0,0) scale(1); opacity:1;} 100% { transform: translate(60px,-40px) scale(0); opacity:0; }}
+        @keyframes spark2 {0% { transform: translate(0,0) scale(1); opacity:1;} 100% { transform: translate(-40px,60px) scale(0); opacity:0; }}
+        @keyframes spark3 {0% { transform: translate(0,0) scale(1); opacity:1;} 100% { transform: translate(30px,30px) scale(0); opacity:0; }}
+        .animate-spin-slow { animation: spin-slow 10s linear infinite; }
+        .animate-spark1 { animation: spark1 2s ease-out infinite alternate; top:10%; left:50%; }
+        .animate-spark2 { animation: spark2 3s ease-in-out infinite alternate; top:40%; left:30%; }
+        .animate-spark3 { animation: spark3 2.5s ease-in infinite alternate; top:60%; left:70%; }
+        @keyframes pulse-glow {0% { text-shadow:0 0 0 rgba(0,200,255,0.4);} 50% { text-shadow:0 0 10px rgba(0,200,255,0.8);} 100% { text-shadow:0 0 0 rgba(0,200,255,0.4);} }
+        .pulse-text { animation: pulse-glow 2.5s infinite ease-in-out; }
+        .dark .pulse-text { text-shadow:0 0 2px rgba(255,191,0,0.4); }
+        @keyframes core-glow {0%,100% { transform: scale(1); opacity:0.5;} 50% { transform: scale(1.2); opacity:1; }}
+        .group-hover\:animate-pulse { animation: core-glow 1.6s ease-in-out infinite; }
       `}</style>
 
+      {/* Header & Toggle */}
       <div className="flex justify-between items-center">
-      <motion.h1
-  initial={{ opacity: 0, scale: 0.95 }}
-  animate={{ opacity: 1, scale: 1 }}
-  transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-  className={`text-4xl sm:text-5xl font-extrabold tracking-tight text-center 
-  ${theme === "light" 
-    ? "text-blue-800 drop-shadow-[0_1px_1px_rgba(0,0,0,0.15)]" 
-    : "text-amber-300 drop-shadow-[0_0_15px_rgba(255,215,0,0.4)]"}`}
->
-  🔮 M.Tech / MS(R) 2025 Portfolio
-</motion.h1>
+        <motion.h1
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          className={
+            `text-4xl sm:text-5xl font-extrabold tracking-tight text-center ${
+              theme === "light"
+                ? "text-blue-800 drop-shadow-[0_1px_1px_rgba(0,0,0,0.15)]"
+                : "text-amber-300 drop-shadow-[0_0_15px_rgba(255,215,0,0.4)]"
+            }`
+          }
+        >
+          🔮 M.Tech / MS(R) 2025 Portfolio
+        </motion.h1>
 
         <div className="relative group">
-  <button
-    onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-    className={`
-      flex items-center gap-2 px-4 py-2 rounded-full border 
-      ${theme === "light" 
-        ? "border-yellow-300 bg-white text-yellow-600 hover:bg-yellow-50" 
-        : "border-blue-300 bg-black text-blue-300 hover:bg-blue-950"
-      } 
-      shadow-md hover:shadow-lg transition-all duration-300 ease-in-out 
-      font-semibold text-sm
-    `}
-  >
-    <FaLightbulb 
-      className={`
-        text-lg transition-transform duration-300 
-        ${theme === "light" ? "rotate-0 text-yellow-400" : "rotate-180 text-blue-300"}
-      `}
-    />
-    {theme === "light" ? "Turn the lights off?" : "Turn the lights on?"}
-  </button>
+          <button
+            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+            className={
+              `flex items-center gap-2 px-4 py-2 rounded-full border ${
+                theme === "light"
+                  ? "border-yellow-300 bg-white text-yellow-600 hover:bg-yellow-50"
+                  : "border-blue-300 bg-black text-blue-300 hover:bg-blue-950"
+              } shadow-md hover:shadow-lg transition-all duration-300 ease-in-out font-semibold text-sm`
+            }
+          >
+            <FaLightbulb
+              className={
+                `text-lg transition-transform duration-300 ${
+                  theme === "light" ? "rotate-0 text-yellow-400" : "rotate-180 text-blue-300"
+                }`
+              }
+            />
+            {theme === "light" ? "Turn the lights off?" : "Turn the lights on?"}
+          </button>
 
-  {/* Optional Stark Core-style Glow Ring */}
-  <div className={`
-    absolute inset-0 rounded-full border-2 
-    ${theme === "light" ? "border-yellow-300" : "border-blue-500"} 
-    blur-md opacity-30 pointer-events-none
-    group-hover:animate-pulse
-  `}></div>
-</div>
-
+          <div
+            className={
+              `absolute inset-0 rounded-full border-2 ${
+                theme === "light" ? "border-yellow-300" : "border-blue-500"
+              } blur-md opacity-30 pointer-events-none group-hover:animate-pulse`
+            }
+          ></div>
+        </div>
       </div>
+
 
 <section className="text-center space-y-4 opacity-0 mt-6">
   {/* Hero Title with rotating glow */}

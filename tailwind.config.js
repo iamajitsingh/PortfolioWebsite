@@ -1,5 +1,6 @@
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: 'class', // ← tell Tailwind to use a class instead of media-query
   theme: {
     extend: {
   keyframes: {
