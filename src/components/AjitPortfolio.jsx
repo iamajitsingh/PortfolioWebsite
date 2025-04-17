@@ -32,7 +32,7 @@ export default function AjitPortfolio() {
   }, []);
 
   useEffect(() => {
-    const sections = document.querySelectorAll("main > div[id]");
+    const sections = document.querySelectorAll("main [id]");
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -44,7 +44,7 @@ export default function AjitPortfolio() {
     sections.forEach((sec) => observer.observe(sec));
     return () => sections.forEach((sec) => observer.unobserve(sec));
   }, []);
-
+  
   // Theme-based classes
   const bg =
     theme === "light"
@@ -297,7 +297,11 @@ export default function AjitPortfolio() {
   ${card}
 `}>
 <CardContent className={`p-8 sm:p-10 space-y-4 ${text}`}>
-          <h2 className={`text-3xl font-semibold mb-2 underline ${underline} drop-shadow-sm tracking-tight`}>🧑‍💻 About Me</h2>
+
+          <h2 className={`text-3xl font-bold tracking-widest text-slate-800 dark:text-yellow-200 drop-shadow dark:drop-shadow-[0_0_8px_rgba(255,255,180,0.4)] flex items-center gap-3`}>
+  <span className="text-2xl">🧑‍💻</span>
+  <span className="uppercase font-mono">   About Me</span>
+</h2>
           <div className="w-20 h-[6px] rounded-full mt-1 mb-4 shadow-inner 
   bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-400
   dark:from-yellow-300 dark:via-orange-400 dark:to-pink-500">
@@ -334,7 +338,10 @@ export default function AjitPortfolio() {
   ${card}
 `}><CardContent className={`p-8 sm:p-10 space-y-4 ${text}`}>
 
-            <h2 className={`text-3xl font-semibold mb-2 underline ${underline} drop-shadow-sm tracking-tight`}>🎓 Academics</h2>
+            <h2 className={`text-3xl font-bold tracking-widest text-slate-800 dark:text-yellow-200 drop-shadow dark:drop-shadow-[0_0_8px_rgba(255,255,180,0.4)] flex items-center gap-3`}>
+  <span className="text-2xl">🎓</span>
+  <span className="uppercase font-mono">  Academics</span>
+</h2>
             <div className="w-20 h-[6px] rounded-full mt-1 mb-4 shadow-inner 
   bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-400
   dark:from-yellow-300 dark:via-orange-400 dark:to-pink-500">
@@ -381,7 +388,11 @@ export default function AjitPortfolio() {
 `}><CardContent className={`p-8 sm:p-10 space-y-4 ${text}`}>
 
 
-            <h2 className={`text-3xl font-semibold mb-2 underline ${underline} drop-shadow-sm tracking-tight`}>💼 Work Experience</h2>
+            <h2 className={`text-3xl font-bold tracking-widest text-slate-800 dark:text-yellow-200 drop-shadow dark:drop-shadow-[0_0_8px_rgba(255,255,180,0.4)] flex items-center gap-3`}>
+  <span className="text-2xl">💼</span>
+  <span className="uppercase font-mono"> Work Experience</span>
+</h2>
+            
             <div className="w-20 h-[6px] rounded-full mt-1 mb-4 shadow-inner 
   bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-400
   dark:from-yellow-300 dark:via-orange-400 dark:to-pink-500">
@@ -423,7 +434,10 @@ export default function AjitPortfolio() {
   ${card}
 `}><CardContent className={`p-8 sm:p-10 space-y-4 ${text}`}>
 
-            <h2 className={`text-3xl font-semibold mb-2 underline ${underline} drop-shadow-sm tracking-tight`}>🛠️ Projects</h2>
+            <h2 className={`text-3xl font-bold tracking-widest text-slate-800 dark:text-yellow-200 drop-shadow dark:drop-shadow-[0_0_8px_rgba(255,255,180,0.4)] flex items-center gap-3`}>
+  <span className="text-2xl">🛠️</span>
+  <span className="uppercase font-mono">  Projects</span>
+</h2>
             <div className="w-20 h-[6px] rounded-full mt-1 mb-4 shadow-inner 
   bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-400
   dark:from-yellow-300 dark:via-orange-400 dark:to-pink-500">
@@ -460,7 +474,11 @@ export default function AjitPortfolio() {
   ${card}
 `}><CardContent className={`p-8 sm:p-10 space-y-4 ${text}`}>
 
-            <h2 className={`text-3xl font-semibold mb-2 underline ${underline} drop-shadow-sm tracking-tight`}>🏅 Achievements</h2>
+            <h2 className={`text-3xl font-bold tracking-widest text-slate-800 dark:text-yellow-200 drop-shadow dark:drop-shadow-[0_0_8px_rgba(255,255,180,0.4)] flex items-center gap-3`}>
+  <span className="text-2xl">🏅</span>
+  <span className="uppercase font-mono"> Achievements</span>
+</h2>
+            
             <div className="w-20 h-[6px] rounded-full mt-1 mb-4 shadow-inner 
   bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-400
   dark:from-yellow-300 dark:via-orange-400 dark:to-pink-500">
@@ -500,7 +518,11 @@ export default function AjitPortfolio() {
   ${card}
 `}><CardContent className={`p-8 sm:p-10 space-y-4 ${text}`}>
 
-            <h2 className={`text-3xl font-semibold mb-2 underline ${underline} drop-shadow-sm tracking-tight`}>📜 Certifications</h2>
+            <h2 className={`text-3xl font-bold tracking-widest text-slate-800 dark:text-yellow-200 drop-shadow dark:drop-shadow-[0_0_8px_rgba(255,255,180,0.4)] flex items-center gap-3`}>
+  <span className="text-2xl">📜</span>
+  <span className="uppercase font-mono">Certifications</span>
+</h2>
+
             <div className="w-20 h-[6px] rounded-full mt-1 mb-4 shadow-inner 
   bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-400
   dark:from-yellow-300 dark:via-orange-400 dark:to-pink-500">
@@ -524,19 +546,13 @@ export default function AjitPortfolio() {
           <div className="absolute inset-0 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent blur-sm opacity-60 animate-pulse"></div>
   <div className="relative z-10 h-[2px] bg-gradient-to-r from-transparent via-slate-400 to-transparent dark:via-slate-600"></div>
 
-          <div className="relative z-0 overflow-visible 
-  before:content-[''] before:absolute before:inset-0 
-  before:z-[-10] 
-  before:bg-[url('/circuit-hud.svg')] 
-  before:bg-no-repeat before:bg-center before:bg-contain 
-  before:opacity-25 dark:before:opacity-30 
-  before:drop-shadow-[0_0_40px_rgba(0,255,255,0.5)] 
-  before:animate-pulse-glow">
+  <div className="relative z-0 overflow-visible">
 
-  {/* ARC REACTOR CORE BACKGLOW */}
-  <div className="absolute inset-0 flex items-center justify-center z-[-5] pointer-events-none">
-    <div className="w-60 h-60 rounded-full bg-cyan-400/10 dark:bg-yellow-400/10 blur-3xl animate-pulse shadow-[0_0_80px_40px_rgba(0,255,255,0.15)] dark:shadow-[0_0_80px_40px_rgba(255,255,0,0.1)]" />
-  </div>
+{/* ARC REACTOR CORE BACKGLOW */}
+<div className="absolute inset-0 flex items-center justify-center z-[-5] pointer-events-none">
+  <div className="w-60 h-60 rounded-full bg-cyan-400/10 dark:bg-yellow-400/10 blur-3xl animate-pulse shadow-[0_0_80px_40px_rgba(0,255,255,0.15)] dark:shadow-[0_0_80px_40px_rgba(255,255,0,0.1)]" />
+</div>
+
 
   <motion.div
     id="tracker"
@@ -556,9 +572,25 @@ export default function AjitPortfolio() {
       ${card}
     `}>
       <CardContent className={`p-8 sm:p-10 space-y-5 ${text}`}>
-        <h2 className={`text-3xl font-semibold mb-2 underline ${underline} drop-shadow-sm tracking-tight`}>
-          🗂️ External Links
-        </h2>
+
+      <h2 className="text-3xl font-bold tracking-widest uppercase font-mono flex items-center gap-3 
+  text-slate-700 dark:text-yellow-200 
+  drop-shadow-[0_1px_1px_rgba(0,0,0,0.15)] 
+  dark:drop-shadow-[0_0_8px_rgba(255,255,180,0.4)] 
+  relative">
+  
+  <span className="text-2xl">🗂️</span>
+  
+  <span className="relative">
+    External Resources 
+    {/* Light Mode Glow Behind Text */}
+    <span className="absolute inset-0 blur-lg opacity-30 bg-blue-200 rounded-lg -z-10 dark:hidden"></span>
+    </span>
+</h2>
+
+
+
+
 
         {/* Arc Reactor Pulse Strip */}
         <div className="w-24 h-[6px] mx-auto rounded-full mt-1 mb-4 
