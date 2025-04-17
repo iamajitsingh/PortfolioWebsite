@@ -15,8 +15,11 @@ module.exports = {
   },
   animation: {
     shimmer: 'shimmer 2s linear infinite',
-    'spin-slow': 'spin 10s linear infinite',
+    'spin-slow': 'spin 3s linear infinite',
     'hue-rotate': 'hue-rotate 30s linear infinite',
+    pulse: 'pulse 2.5s ease-in-out infinite',
+    'pulse-glow': 'pulse 4s ease-in-out infinite',
+
 
   },
 },

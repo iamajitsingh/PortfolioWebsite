@@ -241,7 +241,7 @@ export default function AjitPortfolio() {
       { name: "Projects", href: "#projects" },
       { name: "Achievements", href: "#achievements" },
       { name: "Certs", href: "#certs" },
-      { name: "Tracker", href: "#tracker" },
+      { name: "External Resources", href: "#tracker" },
     ].map((item, index) => {
       const isActive = activeSection === item.href.substring(1);
 
@@ -521,59 +521,123 @@ export default function AjitPortfolio() {
 
 
           <div className="relative my-12">
-  <div className="absolute inset-0 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent blur-sm opacity-60 animate-pulse"></div>
+          <div className="absolute inset-0 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent blur-sm opacity-60 animate-pulse"></div>
   <div className="relative z-10 h-[2px] bg-gradient-to-r from-transparent via-slate-400 to-transparent dark:via-slate-600"></div>
+
+          <div className="relative z-0 overflow-visible 
+  before:content-[''] before:absolute before:inset-0 
+  before:z-[-10] 
+  before:bg-[url('/circuit-hud.svg')] 
+  before:bg-no-repeat before:bg-center before:bg-contain 
+  before:opacity-25 dark:before:opacity-30 
+  before:drop-shadow-[0_0_40px_rgba(0,255,255,0.5)] 
+  before:animate-pulse-glow">
+
+  {/* ARC REACTOR CORE BACKGLOW */}
+  <div className="absolute inset-0 flex items-center justify-center z-[-5] pointer-events-none">
+    <div className="w-60 h-60 rounded-full bg-cyan-400/10 dark:bg-yellow-400/10 blur-3xl animate-pulse shadow-[0_0_80px_40px_rgba(0,255,255,0.15)] dark:shadow-[0_0_80px_40px_rgba(255,255,0,0.1)]" />
+  </div>
+
+  <motion.div
+    id="tracker"
+    className="relative z-10 opacity-0"
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, ease: "easeOut" }}
+    viewport={{ once: true }}
+  >
+    <Card className={`
+      rounded-3xl 
+      border border-slate-300 dark:border-neutral-700 
+      transition duration-300 ease-in-out transform 
+      hover:scale-[1.015] 
+      hover:shadow-[0_8px_30px_rgba(0,200,255,0.25)] 
+      hover:border-sky-300 dark:hover:border-sky-500
+      ${card}
+    `}>
+      <CardContent className={`p-8 sm:p-10 space-y-5 ${text}`}>
+        <h2 className={`text-3xl font-semibold mb-2 underline ${underline} drop-shadow-sm tracking-tight`}>
+          🗂️ External Links
+        </h2>
+
+        {/* Arc Reactor Pulse Strip */}
+        <div className="w-24 h-[6px] mx-auto rounded-full mt-1 mb-4 
+          bg-gradient-to-r from-cyan-400 via-sky-500 to-indigo-500 
+          animate-pulse shadow-[0_0_30px_rgba(0,255,255,0.4)]
+          dark:from-yellow-400 dark:via-pink-500 dark:to-red-500">
+        </div>
+
+        {/* HUD Grid with 4 glowing cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+          {[
+            {
+              emoji: '📝',
+              label: 'Statement of Purpose (PDF)',
+              href: '/Generic_SOP.pdf',
+            },
+            {
+              emoji: '🎖️',
+              label: 'Certificate Index (PDF)',
+              href: '/AjitSinghAdditionalInfo_General_Application.pdf',
+            },
+            {
+              emoji: '📂',
+              label: 'Projects Archive (2019–2022)',
+              href: 'https://iamajit.pythonanywhere.com/view_all',
+            },
+            {
+              emoji: '🧾',
+              label: 'Graduation Blog Post – April 2022',
+              href: 'https://iamajit.pythonanywhere.com/blog/6/',
+            },
+          ].map((item, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: idx * 0.1 }}
+              viewport={{ once: true }}
+              className="group relative p-5 rounded-2xl border border-cyan-400/30 dark:border-yellow-500/30
+                bg-white/10 dark:bg-black/10 backdrop-blur-md
+                hover:shadow-[0_0_40px_rgba(0,255,255,0.3)]
+                hover:ring-2 hover:ring-cyan-300/60 dark:hover:ring-yellow-400/60
+                transition-all duration-500 ease-in-out"
+            >
+              {/* HUD Ping Dot */}
+              <span className="absolute top-2 right-2 w-2 h-2 bg-cyan-300 dark:bg-yellow-400 rounded-full blur-[1px] animate-ping" />
+
+              {/* Holographic Ring */}
+              <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border border-cyan-300/20 dark:border-yellow-300/20 blur-[2px] opacity-80 group-hover:scale-110 transition-transform duration-500" />
+
+              <div className="flex items-center gap-4">
+                <motion.span
+                  className="text-2xl group-hover:animate-spin-slow"
+                >
+                  {item.emoji}
+                </motion.span>
+
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${link} ${linkUltra} font-medium text-sm sm:text-base tracking-wide 
+                    group-hover:text-sky-300 dark:group-hover:text-yellow-300 
+                    transition-colors duration-300 drop-shadow-[0_0_3px_rgba(0,255,255,0.2)]`}
+                >
+                  {item.label}
+                </a>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
+  </motion.div>
 </div>
-<motion.div
-  id="tracker"
-  className="opacity-0"
-  initial={{ opacity: 0, y: 40 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6, ease: "easeOut" }}
-  viewport={{ once: true }}
->
-  <Card className={`
-    rounded-3xl 
-    border border-slate-300 dark:border-neutral-700 
-    transition duration-300 ease-in-out transform 
-    hover:scale-[1.015] 
-    hover:shadow-[0_8px_30px_rgba(0,200,255,0.25)] 
-    hover:border-sky-300 dark:hover:border-sky-500
-    ${card}
-  `}>
-    <CardContent className={`p-8 sm:p-10 space-y-4 ${text}`}>
-      <h2 className={`text-3xl font-semibold mb-2 underline ${underline} drop-shadow-sm tracking-tight`}>
-        🗂️ Application Tracker
-      </h2>
-      <div className="w-20 h-[6px] rounded-full mt-1 mb-4 shadow-inner 
-        bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-400
-        dark:from-yellow-300 dark:via-orange-400 dark:to-pink-500">
-      </div>
 
-      {/* Tracker PDF */}
-      <div className="bg-gradient-to-r from-sky-100/40 to-white dark:from-sky-800/20 dark:to-transparent p-4 rounded-lg border border-sky-200 dark:border-sky-700 text-sm sm:text-base">
-        📄 <a className={`${link} ${linkUltra} font-medium`} href="/MTech_Application_Tracker_2025.pdf" target="_blank" rel="noopener noreferrer">
-          Applications Submitted (PDF)
-        </a>
-      </div>
+</div>
 
-      {/* SOP Master Document */}
-      <div className="bg-gradient-to-r from-sky-100/40 to-white dark:from-sky-800/20 dark:to-transparent p-4 rounded-lg border border-sky-200 dark:border-sky-700 text-sm sm:text-base">
-        📝 <a className={`${link} ${linkUltra} font-medium`} href="/Generic_SOP.pdf" target="_blank" rel="noopener noreferrer">
-          Statement of Purpose (PDF)
-        </a>
-      </div>
-
-      {/* Certificates Index */}
-      <div className="bg-gradient-to-r from-sky-100/40 to-white dark:from-sky-800/20 dark:to-transparent p-4 rounded-lg border border-sky-200 dark:border-sky-700 text-sm sm:text-base">
-        🎖️ <a className={`${link} ${linkUltra} font-medium`} href="/AjitSinghAdditionalInfo_General_Application.pdf" target="_blank" rel="noopener noreferrer">
-          Certificate Index (PDF)
-        </a>
-      </div>
-
-    </CardContent>
-  </Card>
-</motion.div>
 
     </main>
 
