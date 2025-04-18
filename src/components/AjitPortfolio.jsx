@@ -310,7 +310,7 @@ export default function AjitPortfolio() {
           <p className="text-base sm:text-[1.05rem] leading-relaxed tracking-wide font-semibold">
             I'm Ajit Singh, from Mumbai, India. I am passionate about Information Systems. I transitioned from electronics to computer science through self-learning, hackathons, research, and real-world work.
             <br /><br />
-            The time has come in my life to move forward. As a natural progression of events shaped by my journey so far, I am now pursuing postgraduate opportunities in M.Tech, M.Tech (Research) or MS (Research) in Computer Science and Engineering or its applied domains (AI, ML, DL) from one of the nation's premier institutions. This marks a turning point - a transition not just in academics, but in my purpose.
+            As a natural progression of events shaped by my journey so far, I am now pursuing postgraduate opportunities in M.Tech, M.Tech (Research) or MS (Research) in Computer Science and Engineering or its applied domains (AI, ML, DL) from one of the nation's premier institutions. This marks a turning point - a transition not just in academics, but in my purpose.
           </p>
         </CardContent></Card></motion.div>
 
@@ -518,7 +518,7 @@ export default function AjitPortfolio() {
   ${card}
 `}><CardContent className={`p-8 sm:p-10 space-y-4 ${text}`}>
 
-            <h2 className={`text-3xl font-bold tracking-widest text-slate-800 dark:text-yellow-200 drop-shadow dark:drop-shadow-[0_0_8px_rgba(255,255,180,0.4)] flex items-center gap-3`}>
+            <h2 className={`text-3xl font-bold tracking-tight text-slate-800 dark:text-yellow-200 drop-shadow dark:drop-shadow-[0_0_8px_rgba(255,255,180,0.4)] flex items-center gap-3`}>
   <span className="text-2xl">📜</span>
   <span className="uppercase font-mono">Certifications</span>
 </h2>
